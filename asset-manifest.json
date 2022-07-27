@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/web-outliersnft/static/css/main.ee87f39f.chunk.css",
+    "main.js": "/web-outliersnft/static/js/main.7e97a8f4.chunk.js",
+    "main.js.map": "/web-outliersnft/static/js/main.7e97a8f4.chunk.js.map",
+    "runtime-main.js": "/web-outliersnft/static/js/runtime-main.80552e45.js",
+    "runtime-main.js.map": "/web-outliersnft/static/js/runtime-main.80552e45.js.map",
+    "static/js/2.9bb47b9e.chunk.js": "/web-outliersnft/static/js/2.9bb47b9e.chunk.js",
+    "static/js/2.9bb47b9e.chunk.js.map": "/web-outliersnft/static/js/2.9bb47b9e.chunk.js.map",
+    "index.html": "/web-outliersnft/index.html",
+    "static/css/main.ee87f39f.chunk.css.map": "/web-outliersnft/static/css/main.ee87f39f.chunk.css.map",
+    "static/js/2.9bb47b9e.chunk.js.LICENSE.txt": "/web-outliersnft/static/js/2.9bb47b9e.chunk.js.LICENSE.txt",
+    "static/media/App.css": "/web-outliersnft/static/media/background.ee58e2b8.png",
+    "static/media/gallery.e913760b.gif": "/web-outliersnft/static/media/gallery.e913760b.gif",
+    "static/media/twitter-logo.a8a75254.svg": "/web-outliersnft/static/media/twitter-logo.a8a75254.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.80552e45.js",
+    "static/js/2.9bb47b9e.chunk.js",
+    "static/css/main.ee87f39f.chunk.css",
+    "static/js/main.7e97a8f4.chunk.js"
+  ]
+}
