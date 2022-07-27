@@ -1,23 +1,17 @@
 {
   "files": {
-    "main.css": "/web-outliersnft/static/css/main.ee87f39f.chunk.css",
-    "main.js": "/web-outliersnft/static/js/main.7e97a8f4.chunk.js",
-    "main.js.map": "/web-outliersnft/static/js/main.7e97a8f4.chunk.js.map",
-    "runtime-main.js": "/web-outliersnft/static/js/runtime-main.80552e45.js",
-    "runtime-main.js.map": "/web-outliersnft/static/js/runtime-main.80552e45.js.map",
-    "static/js/2.9bb47b9e.chunk.js": "/web-outliersnft/static/js/2.9bb47b9e.chunk.js",
-    "static/js/2.9bb47b9e.chunk.js.map": "/web-outliersnft/static/js/2.9bb47b9e.chunk.js.map",
-    "index.html": "/web-outliersnft/index.html",
-    "static/css/main.ee87f39f.chunk.css.map": "/web-outliersnft/static/css/main.ee87f39f.chunk.css.map",
-    "static/js/2.9bb47b9e.chunk.js.LICENSE.txt": "/web-outliersnft/static/js/2.9bb47b9e.chunk.js.LICENSE.txt",
-    "static/media/App.css": "/web-outliersnft/static/media/background.ee58e2b8.png",
-    "static/media/gallery.e913760b.gif": "/web-outliersnft/static/media/gallery.e913760b.gif",
-    "static/media/twitter-logo.a8a75254.svg": "/web-outliersnft/static/media/twitter-logo.a8a75254.svg"
+    "main.css": "/thunderlizardsnft-web/static/css/main.a3271903.css",
+    "main.js": "/thunderlizardsnft-web/static/js/main.2097cab3.js",
+    "static/media/gallery.gif": "/thunderlizardsnft-web/static/media/gallery.e913760b7e652228b08e.gif",
+    "static/media/background.png": "/thunderlizardsnft-web/static/media/background.ee58e2b829b4f1a35ca0.png",
+    "static/media/twitter-logo.svg": "/thunderlizardsnft-web/static/media/twitter-logo.a8a752547c2913d8bc15e5df109748a6.svg",
+    "static/media/TupacMagrath.woff": "/thunderlizardsnft-web/static/media/TupacMagrath.427f5abb266a01f9d1f5.woff",
+    "index.html": "/thunderlizardsnft-web/index.html",
+    "main.a3271903.css.map": "/thunderlizardsnft-web/static/css/main.a3271903.css.map",
+    "main.2097cab3.js.map": "/thunderlizardsnft-web/static/js/main.2097cab3.js.map"
   },
   "entrypoints": [
-    "static/js/runtime-main.80552e45.js",
-    "static/js/2.9bb47b9e.chunk.js",
-    "static/css/main.ee87f39f.chunk.css",
-    "static/js/main.7e97a8f4.chunk.js"
+    "static/css/main.a3271903.css",
+    "static/js/main.2097cab3.js"
   ]
 }
