@@ -38,12 +38,12 @@ const App = () => {
       */
     if (accounts.length !== 0) {
       const account = accounts[0];
-      console.log("Found an authorized account:", account);
-      setstatusUpdate("Found an authorized account, go ahead and mint!");
+      console.log("found an authorized account:", account);
+      setstatusUpdate("found an authorized Metamask account, go ahead and mint!");
       setCurrentAccount(account);
       } else {
-        console.log("No authorized account found");
-        setstatusUpdate("No authorized account found");
+        console.log("no authorized account found.");
+        setstatusUpdate("no authorized account found.");
       }
     }
   
@@ -54,7 +54,7 @@ const App = () => {
       const { ethereum } = window;
 
       if(!ethereum){
-        setstatusUpdate("get MetaMask pls");
+        setstatusUpdate("get a MetaMask wallet pls");
         return;
       }else{
         setstatusUpdate("found MetaMask wallet. connecting ..");
@@ -67,7 +67,7 @@ const App = () => {
       setstatusUpdate("Connected", accounts[0]);
       setCurrentAccount(accounts[0]);
     } catch (error){
-        setstatusUpdate("There was an error.")
+        setstatusUpdate("there was an error. you may only mint one thunderlizard NFT and you must have the authorized minter role to mint.")
         // setstatusUpdate(error.toString())
         console.log(error())
     }
@@ -75,7 +75,7 @@ const App = () => {
 
   //call make nft function from our web app
   const askContractToMintNft = async () => {
-    const CONTRACT_ADDRESS = "0xBb514353b0665BC096399c2D9133c8bEdC6a7d7a";
+    const CONTRACT_ADDRESS = "0xe04c5Fa129A6804803B49636F9A1f171A39Ce1B7";
   
     try {
       const { ethereum } = window;
@@ -89,16 +89,16 @@ const App = () => {
         // this line creates the connection to our contract
         //contract's address -> abi file
         
-        setstatusUpdate("Going to pop wallet now to pay gas...")
+        setstatusUpdate("going to pop wallet now to pay gas...")
         let nftTxn = await connectedContract.mint();
 
         // ask connected contract the same in etherscan, query has role can do that here, use that to check/disable the button, pop up message
         //disable button -> ethers connection to check whether to render the button
   
-        setstatusUpdate("Mining... please wait.")
+        setstatusUpdate("mining... please wait.")
         await nftTxn.wait();
         
-        setstatusUpdate(`You've mined your NFT! see transaction: https://rinkeby.etherscan.io/tx/${nftTxn.hash}`);
+        setstatusUpdate(`you've mined your NFT! see transaction: https://rinkeby.etherscan.io/tx/${nftTxn.hash}`);
 
         {seeTransaction()}
 
@@ -106,7 +106,7 @@ const App = () => {
         setstatusUpdate("Ethereum object doesn't exist!");
       }
     } catch (error) {
-      setstatusUpdate("there was an error.")
+      setstatusUpdate("there was an error. you may only mint one Outliers NFT and you must have the authorized minter role to mint.")
       // setstatusUpdate(error.toString())
       console.log(error())
     }
@@ -136,7 +136,7 @@ const App = () => {
 
   const seeTransaction = () =>(
     <p className ="sub-text">
-      mined! 
+      you've successfuly mined your thunderlizard NFT!! 
     </p>
   )
 
@@ -153,13 +153,12 @@ const App = () => {
             <img alt="NFT Preview" className="card" src={gallery} /><p/>
 
 
-      &#9758; <span id="news">updating status ..</span><br/>
+      &#9758; <b>updating status</b> <span id="news"> ..</span><br/>
 
       <text className="statusUpdateText">
             {statusUpdate}
           </text>
-
-
+      
         </div>
 
           <span className="column2">
@@ -181,6 +180,7 @@ const App = () => {
               )}
               <br/><br/>
               <text><small>⚠️ The Thunderlizard NFT is reserved for Outliers only. ⚠️ </small></text>
+
           </span>
 
         
@@ -188,7 +188,7 @@ const App = () => {
 
         <a
           className="outliers-logo"
-          href="http://outliers.build"
+          href="https://twitter.com/outlierdao"
           target="_blank"
           rel="noreferrer" 
           >
