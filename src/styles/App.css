@@ -84,6 +84,7 @@
   text-align: left;
   overflow-x: scroll;
   overflow-y:scroll;
+  padding-top: 3%;
 }
 
 .statusUpdateText {
@@ -252,7 +253,7 @@
 .disclaimer{
   font-size: 11px;
   text-align: center;
-  padding-top: 10%;
+  padding-top: 6%;
 }
 
 .outliers-logo{
