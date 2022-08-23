@@ -1,5 +1,6 @@
 import './styles/App.css';
 import twitterLogo from './assets/twitter-logo.svg';
+import openseaLogo from './assets/Opensea.svg';
 import gallery from './assets/gallery.gif';
 import React, { useEffect, useState } from "react";
 import { ethers } from "ethers";
@@ -216,12 +217,12 @@ const App = () => {
             
             <p className="header">ThunderLizard <p style={{fontSize:'3.5vw', lineHeight:'0vh'}}>NFT Collection</p></p>
               
-              <p className="sub-text">
-                <b>We connect, educate, and empower the top Web3 builders in the world.</b> <br></br>
+              <div className="sub-text">
+                <p><b>We connect, educate, and empower the top Web3 builders in the world.</b></p>
                 Outliers is a 10-week, summer program to empower exceptional student builders in Crypto and Web3.
                 Through curriculum and technical projects, Outliers equips students from across the country with the resources, knowledge, and community necessary 
                 to build and scale a successful Web3 venture. 
-              </p> <br/>
+              </div>
 
               {currentAccount === "" ? (renderNotConnectedContainer()) : (
                 <button onClick={askContractToMintNft} className="cta-button mint-button">
@@ -230,7 +231,20 @@ const App = () => {
 
               )}
               <br/><br/>
-              <text><small>⚠️ The Thunderlizard NFT is reserved for Outliers only ⚠️ </small></text>
+
+              
+              <div className="disclaimer">⚠️ The Thunderlizard NFT is reserved for Outliers only ⚠️ </div>
+
+              <br></br>
+
+              <a 
+              href="https://opensea.io/collection/outliers-v3"
+              target="_blank"
+              rel="noreferrer">
+              <img className="opensea-logo" alt="Opensea Logo" src={openseaLogo} />
+              </a>
+
+
 
           </span>
         
@@ -240,19 +254,14 @@ const App = () => {
         <div className="footer-container">
 
         <a
-          className="outliers-logo"
           href="https://twitter.com/outlierdao"
           target="_blank"
           rel="noreferrer" 
           >
             <img alt="Outliers Logo" className="outliers-logo" src={outliersLogo} />
-          </a> <br></br>
+          </a> 
 
-          <text className="footer-text"><i>building the future of web3 and deFi</i></text>
-        
-          <br></br><br></br>
-
-
+          <br></br>
           <a
             className="footer-text"
             href={TWITTER_LINK}
