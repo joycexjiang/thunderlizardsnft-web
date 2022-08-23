@@ -7,6 +7,20 @@ import outliersNFT from './utils/OutliersNFT.json';
 import outliersLogo from './assets/LOGO.png';
 import './styles/fonts/TupacMagrath.woff';
 
+// const assets = {
+//   background: ["/assets/BACKGROUND/background-blue.png","/assets/BACKGROUND/background-bricks.png","/assets/BACKGROUND/background-clouds.png","/assets/BACKGROUND/background-cyan.png","/assets/BACKGROUND/background-fgdarkblue.png","/assets/BACKGROUND/background-green.png","/assets/BACKGROUND/background-lines.png","/assets/BACKGROUND/background-orange.png","/assets/BACKGROUND/background-pink.png","/assets/BACKGROUND/background-pink2.png","/assets/BACKGROUND/background-purple2.png","/assets/BACKGROUND/background-red2.png","/assets/BACKGROUND/background-sun.png","/assets/BACKGROUND/background-themed.png","/assets/BACKGROUND/background-yellow.png","/assets/BACKGROUND/pixil-layer-17.png"],
+//   body: [
+//     "/assets/BODY/body-blue.png","/assets/BODY/body-cyan.png","/assets/BODY/body-green.png","/assets/BODY/body-orange.png","/assets/BODY/body-pink.png","/assets/BODY/body-pink2.png","/assets/BODY/body-purple.png","/assets/BODY/body-red.png","/assets/BODY/body-yellow.png"
+//   ],
+//   elements: [
+//     "/assets/ELEMENTS/elements-cup.png","/assets/ELEMENTS/elements-firetail.png","/assets/ELEMENTS/elements-flower.png","/assets/ELEMENTS/elements-planet.png"
+//   ],
+//   eyes: ["/assets/EYES/eyes-1.png","/assets/EYES/eyes-2.png","/assets/EYES/eyes-3.png","/assets/EYES/eyes-glasses1.png","/assets/EYES/eyes-glasses2.png","/assets/EYES/eyes-glasses3.png","/assets/EYES/eyes-glasses4.png","/assets/EYES/eyes-glasses5.png","/assets/EYES/eyes-glasses6.png","/assets/EYES/eyes-glasses7.png","/assets/EYES/eyes-tear.png"],
+//   hats: ["/assets/HATS/elements-bluehat.png","/assets/HATS/elements-crown.png","/assets/HATS/elements-flower1.png","/assets/HATS/elements-greenhat.png","/assets/HATS/elements-halo.png","/assets/HATS/elements-horn.png"],
+//   roar: ["/assets/ROAR/roar-blue.png","/assets/ROAR/roar-blue2.png","/assets/ROAR/roar-blue3.png","/assets/ROAR/roar-drool.png","/assets/ROAR/roar-fire.png","/assets/ROAR/roar-flowers.png","/assets/ROAR/roar-green.png","/assets/ROAR/roar-mask.png","/assets/ROAR/roar-pink.png","/assets/ROAR/roar-purple.png","/assets/ROAR/roar-rainbow.png","/assets/ROAR/roar-tongue.png","/assets/ROAR/roar-tongue2.png","/assets/ROAR/roar-yellow.png"],
+//   spikes: ["/assets/SPIKES/spikes.png"],
+// }
+
 // Constants
 const TWITTER_HANDLE = 'joycebydsgn';
 const TWITTER_LINK = `https://twitter.com/${TWITTER_HANDLE}`;
@@ -16,6 +30,17 @@ const App = () => {
   const [currentAccount, setCurrentAccount] = useState("");
   const [statusUpdate, setstatusUpdate]= useState("");
 
+
+  // const [currentIndices, setCurrentIndices] = useState ({
+  //   backgroundIndex: 5,
+  //   bodyIndex: 1,
+  //   elementIndex: 0,
+  //   eyesIndex:2,
+  //   hatsIndex:3,
+  //   roarIndex:0,
+  //   spikesIndex: 0,
+  // })
+  
   /*making sure this is async*/
 
   const checkIfWalletIsConnected = async () => {
@@ -38,8 +63,9 @@ const App = () => {
       */
     if (accounts.length !== 0) {
       const account = accounts[0];
-      console.log("found an authorized account:", account);
-      setstatusUpdate("found an authorized Metamask account, go ahead and mint!");
+      console.log("Found an authorized account:", account);
+      setstatusUpdate(`found an authorized Metamask account, go ahead & mint!`);
+
       setCurrentAccount(account);
       } else {
         console.log("no authorized account found.");
@@ -67,7 +93,7 @@ const App = () => {
       setstatusUpdate("Connected", accounts[0]);
       setCurrentAccount(accounts[0]);
     } catch (error){
-        setstatusUpdate("there was an error. you may only mint one thunderlizard NFT and you must have the authorized minter role to mint.")
+        setstatusUpdate('there was an error.\nyou may only mint one thunderlizard NFT and you must have the authorized minter role to mint.');
         // setstatusUpdate(error.toString())
         console.log(error())
     }
@@ -75,7 +101,7 @@ const App = () => {
 
   //call make nft function from our web app
   const askContractToMintNft = async () => {
-    const CONTRACT_ADDRESS = "0xe04c5Fa129A6804803B49636F9A1f171A39Ce1B7";
+    const CONTRACT_ADDRESS = "0xBb514353b0665BC096399c2D9133c8bEdC6a7d7a";
   
     try {
       const { ethereum } = window;
@@ -95,10 +121,10 @@ const App = () => {
         // ask connected contract the same in etherscan, query has role can do that here, use that to check/disable the button, pop up message
         //disable button -> ethers connection to check whether to render the button
   
-        setstatusUpdate("mining... please wait.")
+        setstatusUpdate("minting... please wait.")
         await nftTxn.wait();
         
-        setstatusUpdate(`you've mined your NFT! see transaction: https://rinkeby.etherscan.io/tx/${nftTxn.hash}`);
+        setstatusUpdate(`minted!\nsee transaction: https://rinkeby.etherscan.io/tx/${nftTxn.hash}`);
 
         {seeTransaction()}
 
@@ -106,7 +132,7 @@ const App = () => {
         setstatusUpdate("Ethereum object doesn't exist!");
       }
     } catch (error) {
-      setstatusUpdate("there was an error. you may only mint one Outliers NFT and you must have the authorized minter role to mint.")
+      setstatusUpdate('there was an error.\nyou may only mint one nft and you must have the authorized minter role to mint.');
       // setstatusUpdate(error.toString())
       console.log(error())
     }
@@ -144,20 +170,45 @@ const App = () => {
   return (
     
     <div className="App">
+  
+    {/* {assets.background.map((imgPath, index) => {
+      return (
+        <img onClick={setCurrentIndices({...currentIndices, backgroundIndex: index})} src={imgPath}></img>
+      )
+    })} */}
+{/*     
+    <button onClick = {() => {setCurrentIndices({...currentIndices, backgroundIndex: backgroundIndex + 1})}  }> Change Background</button> */}
+
+
       <div className="container">
 
         <div className="glass-container">
 
           <div className="column1">
-            
-            <img alt="NFT Preview" className="card" src={gallery} /><p/>
 
+          {/* <div className='wrapper'>
+    
+            <img className='wrapper-background' src={assets.background[currentIndices.backgroundIndex]}></img>
+            <img className='wrapper-body' src={assets.body[currentIndices.bodyIndex]}></img>
+            <img className='wrapper-elements' src={assets.elements[currentIndices.elementIndex]}></img>
+            <img className='wrapper-eyes' src={assets.eyes[currentIndices.eyesIndex]}></img>
+            <img className='wrapper-hats'src={assets.hats[currentIndices.hatsIndex]}></img>
+            <img className='wrapper-roar'src={assets.roar[currentIndices.roarIndex]}></img>
+            <img className='wrapper-spikes' src={assets.spikes[currentIndices.spikesIndex]}></img>
+          
+          </div> */}
 
-      &#9758; <b>updating status</b> <span id="news"> ..</span><br/>
+            <center><img alt="NFT Preview" className="card" src={gallery} /></center><p/>
 
-      <text className="statusUpdateText">
-            {statusUpdate}
-          </text>
+            <div className="statusUpdate">
+
+                &#9758; <b>updating status</b> <span id="news"> ..</span><br/>
+                
+                <text className="statusUpdateText">
+                 {statusUpdate}
+                </text>
+
+            </div>
       
         </div>
 
@@ -165,12 +216,12 @@ const App = () => {
             
             <p className="header">ThunderLizard <p style={{fontSize:'3.5vw', lineHeight:'0vh'}}>NFT Collection</p></p>
               
-              <text className="sub-text">
-                <p><b>We connect, educate, and empower the top Web3 builders in the world.</b> </p>
+              <p className="sub-text">
+                <b>We connect, educate, and empower the top Web3 builders in the world.</b> <br></br>
                 Outliers is a 10-week, summer program to empower exceptional student builders in Crypto and Web3.
                 Through curriculum and technical projects, Outliers equips students from across the country with the resources, knowledge, and community necessary 
                 to build and scale a successful Web3 venture. 
-              </text> <br/>
+              </p> <br/>
 
               {currentAccount === "" ? (renderNotConnectedContainer()) : (
                 <button onClick={askContractToMintNft} className="cta-button mint-button">
@@ -179,12 +230,14 @@ const App = () => {
 
               )}
               <br/><br/>
-              <text><small>⚠️ The Thunderlizard NFT is reserved for Outliers only. ⚠️ </small></text>
+              <text><small>⚠️ The Thunderlizard NFT is reserved for Outliers only ⚠️ </small></text>
 
           </span>
-
         
         </div>
+
+
+        <div className="footer-container">
 
         <a
           className="outliers-logo"
@@ -193,24 +246,25 @@ const App = () => {
           rel="noreferrer" 
           >
             <img alt="Outliers Logo" className="outliers-logo" src={outliersLogo} />
-          </a>
+          </a> <br></br>
 
-          <i>building the future of web3 and deFi</i>
-
-        <div className="footer-container">
+          <text className="footer-text"><i>building the future of web3 and deFi</i></text>
         
-          <img alt="Twitter Logo" className="twitter-logo" src={twitterLogo} />
+          <br></br><br></br>
+
+
           <a
             className="footer-text"
             href={TWITTER_LINK}
             target="_blank"
             rel="noreferrer"
-         >{`built by @${TWITTER_HANDLE}`}</a></div>
-
+         >{`built by @${TWITTER_HANDLE}`}</a>
+         
+         <img alt="Twitter Logo" className="twitter-logo" src={twitterLogo} />
+         
+         </div>
          
         </div>
-
-
         
       </div>
   );

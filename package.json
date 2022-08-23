@@ -10,7 +10,9 @@
     "coverage": "^0.4.1",
     "ethers": "^5.4.7",
     "react": "^17.0.2",
+    "react-basicons": "^0.3.4",
     "react-dom": "^17.0.2",
+    "react-router-dom": "^6.3.0",
     "react-scripts": "4.0.3",
     "web-vitals": "^1.1.2"
   },
