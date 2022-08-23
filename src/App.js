@@ -101,7 +101,7 @@ const App = () => {
 
   //call make nft function from our web app
   const askContractToMintNft = async () => {
-    const CONTRACT_ADDRESS = "0xBb514353b0665BC096399c2D9133c8bEdC6a7d7a";
+    const CONTRACT_ADDRESS = "0x237daA112094De019E1ED6209c7F4b9f37Df7EaB";
   
     try {
       const { ethereum } = window;
@@ -124,7 +124,7 @@ const App = () => {
         setstatusUpdate("minting... please wait.")
         await nftTxn.wait();
         
-        setstatusUpdate(`minted!\nsee transaction: https://rinkeby.etherscan.io/tx/${nftTxn.hash}`);
+        setstatusUpdate(`minted!\nsee transaction: https://etherscan.io/tx/${nftTxn.hash}`);
 
         {seeTransaction()}
 
